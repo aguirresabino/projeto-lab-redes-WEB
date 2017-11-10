@@ -1,0 +1,34 @@
+{
+  "name": "Projeto de Cloud Computing",
+  "homepage": "https://github.com/aguirresabino/projeto-lab-redes-WEB",
+  "authors": [
+    "\"Aguirre Sabino <git: aguirresabino>\"",
+    "\"Caique Vitoriano <git: caiquevitoriano>\"",
+    "\"Lucas Duete <git: lucasduete>\""
+  ],
+  "description": "Projeto da disciplina de Lab. de Redes do curso de ADS do IFPB",
+  "main": "index.html",
+  "keywords": [
+    "cloud",
+    "computing",
+    "lab",
+    "laboratório",
+    "redes",
+    "ads",
+    "ifpb"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6"
+  }
+}

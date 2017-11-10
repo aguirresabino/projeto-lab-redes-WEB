@@ -1,0 +1,25 @@
+{
+  "name": "cloud-computing",
+  "version": "1.0.0",
+  "description": "Projeto para a disciplina de laboratório de redes do curso de ADS no IFPB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "gulp server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aguirresabino/projeto-lab-redes-WEB.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aguirresabino/projeto-lab-redes-WEB/issues"
+  },
+  "homepage": "https://github.com/aguirresabino/projeto-lab-redes-WEB#readme",
+  "dependencies": {
+    "bower": "^1.8.2",
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1"
+  }
+}
