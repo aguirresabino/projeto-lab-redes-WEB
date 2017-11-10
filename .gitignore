@@ -1,0 +1,13 @@
+
+### SublimeText ###
+
+*.sublime-workspace
+*.sublime-project
+
+ ## Bower ##
+/src/assets/components
+/bower_components
+/node_modules/
+
+## npm ##
+npm-debug.log
