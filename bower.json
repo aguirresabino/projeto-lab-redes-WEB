@@ -1,5 +1,5 @@
 {
-  "name": "Projeto de Cloud Computing",
+  "name": "UpSafe",
   "homepage": "https://github.com/aguirresabino/projeto-lab-redes-WEB",
   "authors": [
     "\"Aguirre Sabino <git: aguirresabino>\"",
@@ -7,7 +7,7 @@
     "\"Lucas Duete <git: lucasduete>\""
   ],
   "description": "Projeto da disciplina de Lab. de Redes do curso de ADS do IFPB",
-  "main": "index.html",
+  "main": "",
   "keywords": [
     "cloud",
     "computing",

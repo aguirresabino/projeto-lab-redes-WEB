@@ -1,2 +1,2 @@
-# projeto-lab-redes-WEB
+# UpSafe
 Projeto de Cloud Computing desenvolvido durante a cadeira de Laboratório de Redes no curso de ADS do IFPB.
