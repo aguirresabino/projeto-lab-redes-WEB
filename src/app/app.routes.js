@@ -11,5 +11,9 @@
 		    	controller: 'LoginController',
 		    	controllerAs: 'Login'
 		    })
+		    .otherwise({
+		        redirectTo: '/login'
+		    })
 	}
+	config.$inject = ['$routeProvider']
 })();
