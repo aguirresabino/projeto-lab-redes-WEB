@@ -8,7 +8,6 @@
 
   function preAtivador($rootScope, $location) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      console.log(next.authorize);
       if(next.authorize) {
         if(!localStorage.token) {
           event.preventDefault();
