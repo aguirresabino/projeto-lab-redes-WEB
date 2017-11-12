@@ -30,7 +30,7 @@
 			var request = {
 				url: `${urlBase}/${path}`,
 				method: methods.POST,
-				data: user				
+				data: user			
 			};
 
 			return $http(request);
@@ -44,7 +44,9 @@
 				method: methods.PUT,
 				data: user,
 				headers: {'Authorization': 'Bearer '+ localStorage.token}
-			}
+			};
+
+			return $http(request);
 		}
 
 		this.remove = function(id){
@@ -54,8 +56,9 @@
 				url:`${urlBase}/${path}`,
 				method: methods.DELETE,
 				headers: {'Authorization': 'Bearer '+ localStorage.token}
-			}
+			};
 
+			return $http(request);
 		}
 	}
 
