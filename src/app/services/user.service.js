@@ -7,10 +7,10 @@
 	function UserService($http){
 		const urlBase = 'https://upsafe.herokuapp.com/rest';
 		const methods = {
-			GET = 'GET',
-			POST = 'POST',
-			PUT = 'PUT',
-			DELETE = 'DELETE'
+			GET : 'GET',
+			POST : 'POST',
+			PUT : 'PUT',
+			DELETE : 'DELETE'
 		};
 
 		this.login = function(login){
