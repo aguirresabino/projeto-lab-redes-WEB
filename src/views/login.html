@@ -1,0 +1,77 @@
+<style type="text/css">
+	body{
+		background: #2d2d30;
+		font: 400 15px/1.8 Lato, sans-serif;
+        color: white;
+	}
+	div#intro{
+		/*background: #6ED0F6;	*/
+		min-height: 736px;
+		padding-top: 20%;
+	}
+	div#login{
+		background: white;
+		min-height: 590px;
+		color: #2d2d30;
+		padding-top: 30%; 
+		padding-bottom: 50%;
+	}
+	div#login button{
+		margin: 10% 0;
+	}
+</style>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-xs-12" id="intro">
+			<h1 class="text-center">UpSafe!</h1>
+		</div>
+		<div class="col-md-4 col-xs-12" id="login">
+			<h2>Cadastre-se</h2>
+			<form>
+				<div class="form-group">
+			    	<label for="nome">Nome</label>
+			    	<input type="text" class="form-control" id="nome" placeholder="Nome">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="email">Email</label>
+			    	<input type="emial" class="form-control" id="email" placeholder="Email">
+			  	</div>
+			  	<div class="form-group">
+			  		<label for="senha">Senha</label>
+			  		<input type="password" class="form-control" id="senha" placeholder="Senha">
+			  	</div>
+			  	<button type="submit" class="btn btn-default btn-lg btn-block">Cadastrar</button>
+			</form>
+			<p class="text-right">Já possui uma conta? <a data-toggle="modal" data-target="#loginModal">Faça login</a></p>
+
+			<!--Modal para login-->
+			<div class="modal fade" id="loginModal" role="dialog">
+			 	<div class="modal-dialog">
+			 		<!-- Modal content-->
+			      	<div class="modal-content">
+			        	<div class="modal-header">
+			          		<h4 class="modal-title">Acesse a conta</h4>
+			        	</div>
+			        	<div class="modal-body">
+			        		<form>
+			        			<div class="form-group">
+			        				<label for="login">Login</label>
+			        				<input type="text" class="form-control" id="login" placeholder="Login">
+			        			</div>
+			        			<div class="form-group">
+			        				<label for="senha">Senha</label>
+			        				<input type="password" class="form-control" id="senha" placeholder="Senha">
+			        			</div>
+			        			<button type="submit" class="btn btn-default btn-lg btn-block">Entrar</button>
+			        			<button type="button" class="btn btn-default btn-lg btn-block" data-dismiss="modal">Fechar</button>
+			        		</form>
+			        	</div>
+			        	
+			      	</div>
+			    </div>
+			</div>
+			<!--Fim do modal-->
+
+		</div>
+	</div>
+</div>  							  	

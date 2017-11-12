@@ -1,18 +1,21 @@
-(function(){
-	'use strict';
+(function() {
+  'use strict';
 
-	angular.module('UpSafe', ['ngRoute'])
-		.run(preAtivador);
+  angular.module('UpSafe', 
+    ['LoginController', 'ngRoute']
+  )
+  .run(preAtivador);
 
-	function preAtivador($rootScope, $location) {
-	    $rootScope.$on('$routeChangeStart', function(event, next, current) {
-	      if(next.authorize) {
-	        if(!localStorage.token) {
-	          event.preventDefault();
-	          $location.path('#!/login');
-	        }
-	      }
-	    });
-	}
-	preAtivador.$inject = ['$rootScope', '$location'];
+  function preAtivador($rootScope, $location) {
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+      if(next.authorize) {
+        if(!localStorage.token) {
+          event.preventDefault();
+          $location.path('#!/login');
+        }
+      }
+    });
+  }
+  preAtivador.$inject = ['$rootScope', '$location'];
+
 })();
