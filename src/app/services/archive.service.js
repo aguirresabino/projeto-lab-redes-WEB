@@ -52,4 +52,4 @@
 	}
 
 	ArquivoService.$inject = ['$http'];
-})
+})();
