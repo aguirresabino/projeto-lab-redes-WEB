@@ -8,12 +8,14 @@
 		var vm = this;
 
 		vm.login = function(login){
-			console.log(login)
+			console.log(login);
 			UserService.login(login)
 				.then(function(success){
+					$('.modal-backdrop').remove(); //Escondendo o modal onde eh feito o login.
+					
 					var token = success.data.password;
 					localStorage.setItem('token', token);
-					alert('nome:', success.data.nome);
+					$location.path('meus-arquivos');
 				})
 				.catch(function(error){
 					alert("Dados informados estão incorretos, verifique as informações e tente novamente!");
