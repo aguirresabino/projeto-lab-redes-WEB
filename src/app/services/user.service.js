@@ -65,7 +65,7 @@
 			const path = `usuario/checarUsuario/${id}`;
 
 			var request = {
-				url: `${urlBase}/${path}`;
+				url: `${urlBase}/${path}`,
 				method: methods.GET,
 				headers: {'Authorization': 'Bearer '+ localStorage.token}
 			};
