@@ -11,6 +11,12 @@
 		    	controller: 'UserController',
 		    	controllerAs: 'User'
 		    })
+		    .when('/meus-arquivos', {
+		    	templateUrl: '../views/arquivos.html',
+		    	controller: 'ArquivoController',
+		    	controllerAs: 'Arquivo',
+		    	authorize: true
+		    })
 		    .otherwise({
 		        redirectTo: '/login'
 		    })
