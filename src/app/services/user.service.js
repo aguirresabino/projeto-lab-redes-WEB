@@ -14,7 +14,7 @@
 		};
 
 		this.login = function(login){
-			const path = `loginUsuario/${login.email}/${login.senha}`;
+			const path = `login/loginUsuario/${login.email}/${login.password}`;
 
 			var request = {
 				url: `${urlBase}/${path}`,
