@@ -60,6 +60,18 @@
 
 			return $http(request);
 		}
+
+		this.userCheck = function(id){
+			const path = `usuario/checarUsuario/${id}`;
+
+			var request = {
+				url: `${urlBase}/${path}`;
+				method: methods.GET,
+				headers: {'Authorization': 'Bearer '+ localStorage.token}
+			};
+
+			return $http(request);
+		}
 	}
 
 	UserService.$inject = ['$http'];
