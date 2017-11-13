@@ -8,8 +8,8 @@
 		$routeProvider
 		    .when('/login', {
 		    	templateUrl: '../views/login.html',
-		    	controller: 'LoginController',
-		    	controllerAs: 'Login'
+		    	controller: 'UserController',
+		    	controllerAs: 'User'
 		    })
 		    .otherwise({
 		        redirectTo: '/login'
