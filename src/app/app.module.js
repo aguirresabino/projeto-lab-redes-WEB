@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('UpSafe', 
-    ['LoginController', 'ngRoute']
+    ['LoginController', 'UserController', 'ngRoute']
   )
   .run(preAtivador);
 
