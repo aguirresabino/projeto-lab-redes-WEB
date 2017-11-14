@@ -63,11 +63,37 @@
 				})
 		}
 
-		vm.baixarArquivo = function(idArquivo){
-			ArquivoService.download(idArquivo)
+		vm.baixarArquivo = function(arquivo){
+			ArquivoService.download(arquivo.id)
 				.then(function(success){
-					console.log('Arquivo baixado');
+					console.log('Arquivo baixado');	
 					console.log(success.data);
+
+					/*var tipo;
+  
+				  	var arquivo = {
+				    	nome: "arquivo.pdf"
+				  	};
+				  
+				  	switch (arquivo.nome.split(".")[1]) {
+				    	case "pdf":
+				      		tipo = "application/pdf";
+				      		break;
+				    	case "pnj":
+				      		tipo = "image/png";
+				      		break;
+				    	case "jpg":
+				      		tipo = "image/jpg";
+				      		break;
+				    	case "jpeg":
+				      		tipo = "image/jpg";
+				      		break;
+				  }
+
+				  console.log('AQUI');
+				  
+				  var blob = new Blob([], {type: tipo});
+				  FileSaver.saveAs(blob, arquivo.nome);*/
 				})
 				.catch(function(error){
 					console.log('O arquivo não foi baixado');
