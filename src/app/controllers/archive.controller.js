@@ -53,6 +53,16 @@
 			}
 		}
 
+		vm.deletar = function(idArquivo){
+			ArquivoService.delete(idArquivo)
+				.then(function(success){
+					alert('Arquivo excluído!');
+				})
+				.catch(function(error){
+					console.log('Erro ao deletar arquivo', error);
+				})
+		}
+
 		vm.baixarArquivo = function(idArquivo){
 			ArquivoService.download(idArquivo)
 				.then(function(success){
@@ -62,6 +72,10 @@
 				.catch(function(error){
 					console.log('O arquivo não foi baixado');
 				})
+		}
+
+		vm.limparStorage = function(){
+			localStorage.clear();
 		}
 	}
 })();

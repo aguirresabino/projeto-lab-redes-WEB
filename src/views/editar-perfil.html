@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  	<div class="container-fluid">
+    	<div class="navbar-header">
+      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span> 
+      		</button>
+      		<a class="navbar-brand" href="#!/meus-arquivos">UpSafe</a>
+    	</div>
+    	<div class="collapse navbar-collapse" id="myNavbar">
+	      	<ul class="nav navbar-nav">
+	        	<li><a href="#!/meus-arquivos">Meus Arquivos</a></li>
+	        	<li><a href="#!/editar-perfil">Atualizar meus dados</a></li>
+	      	</ul>
+	      	<ul class="nav navbar-nav navbar-right">
+	        	<li><a href="#!/login" data-ng-click="Arquivo.limparStorage()"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+	      	</ul>
+    	</div>
+  	</div>
+</nav>
+
+<div class="container" style="margin-top: 80px">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">Meus dados</div>
+      <div class="panel-body">
+        <form>
+          <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" class="form-control" id="nome" placeholder="{{User.perfil.nome}}" data-ng-model="User.user.nome">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="{{User.perfil.email}}" data-ng-model="User.user.email">
+            </div>
+            <div class="form-group">
+              <label for="senha">Senha</label>
+              <input type="password" class="form-control" id="senha" placeholder="Senha" data-ng-model="User.user.password">
+            </div>
+            <button type="submit" class="btn btn-default btn-lg btn-block" data-ng-click="User.cadastrar(User.user)">Alterar</button><br>
+            <a href data-ng-click="User.remover(User.perfil.id)">Excluir conta</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

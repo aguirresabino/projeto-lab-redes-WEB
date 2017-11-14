@@ -2,10 +2,13 @@
 	'use strict';
 
 	angular.module('UserController', ['UserService'])
-		.controller('UserController', ['UserService', UserController]);
+		.controller('UserController', ['UserService', '$location', UserController]);
 
-	function UserController(UserService){
+	function UserController(UserService, $location){
 		var vm = this;
+
+		vm.perfil = angular.fromJson(localStorage.getItem('user'));
+		console.log(vm.perfil);
 
 		vm.cadastrar = function(user){
 			UserService.create(user)
@@ -32,6 +35,7 @@
 		vm.remover = function(id){
 			UserService.remove(id)
 				.then(function(success){
+					$location.path('login');
 					alert('Conta removida!');
 				})
 				.catch(function(error){

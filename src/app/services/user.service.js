@@ -52,7 +52,7 @@
 		this.remove = function(id){
 			const path = `usuario/removerUsuario/${id}`;
 
-			var requesst = {
+			var request = {
 				url:`${urlBase}/${path}`,
 				method: methods.DELETE,
 				headers: {'Authorization': 'Bearer '+ localStorage.token}

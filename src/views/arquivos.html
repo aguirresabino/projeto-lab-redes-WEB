@@ -10,11 +10,11 @@
     	</div>
     	<div class="collapse navbar-collapse" id="myNavbar">
 	      	<ul class="nav navbar-nav">
-	        	<li class="active"><a href="#!/meus-arquivos">Meus Arquivos</a></li>
+	        	<li><a href="#!/meus-arquivos">Meus Arquivos</a></li>
 	        	<li><a href="#!/editar-perfil">Atualizar meus dados</a></li>
 	      	</ul>
 	      	<ul class="nav navbar-nav navbar-right">
-	        	<li><a href="#!/login"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+	        	<li><a href="#!/login" data-ng-click="Arquivo.limparStorage()"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
 	      	</ul>
     	</div>
   	</div>
@@ -50,7 +50,7 @@
 			        	<td>{{arquivo.nome}}</td>
 			        	<td>{{arquivo.tamanho}}</td>
 			        	<td align="right">
-			        		<a href=""><span class="glyphicon glyphicon-trash" title="Excluir"></span></a>
+			        		<a href=""><span class="glyphicon glyphicon-trash" title="Excluir" data-ng-click="Arquivo.deletar(arquivo.id)"></span></a>
 			        		<a id="download" data-ng-href="{{Arquivo.arquivo}}" download data-ng-click = "Arquivo.baixarArquivo(arquivo.id)"><span class="glyphicon glyphicon-cloud-download" title="Download" data-ng-model= "Arquivo.download"></span></a>
 			        	</td>
 			      	</tr>
