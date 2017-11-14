@@ -63,5 +63,9 @@
 					console.log('O arquivo não foi baixado');
 				})
 		}
+
+		vm.limparStorage = function(){
+			localStorage.clear();
+		}
 	}
 })();
