@@ -7,33 +7,60 @@
 	function ArquivoController(ArquivoService){
 		var vm = this;
 
-		vm.enviarArquivo = function(arquivo){
-			ArquivoService.update(arquivo)
+		vm.listarArquivos = function(){
+			ArquivoService.list()
 				.then(function(success){
-					console.log('Arquivo enviado');
+					vm.arquivos = success.data;
+					console.log('Arquivos listados', vm.arquivos);
 				})
 				.catch(function(error){
-					console.log('O arquivo não foi enviado');
+					console.log('Arquivos não foram listados');
 				})
+		}();
+
+		vm.enviarArquivo = function(arquivo){
+			var arquivo = document.querySelector('input[type=file]').files[0];
+			var user = angular.fromJson(localStorage.getItem('user'));
+			var readerArquivo = new FileReader();
+
+			var objArquivo = {};
+
+
+			if(arquivo) {
+				objArquivo = {
+					'idUsuario': user.id,
+					'nome': arquivo.name,
+					'content': null,
+					'tamanho': arquivo.size
+				};
+				readerArquivo.readAsDataURL(arquivo);
+				console.log('arquivo', objArquivo);
+
+				readerArquivo.onload = function() {
+					objArquivo.content = readerArquivo.result.split(';base64,')[1];
+					console.log(objArquivo.content);
+
+					ArquivoService.upload(objArquivo)
+						.then(function(success){
+							console.log('Arquivo enviado');
+						})
+						.catch(function(error){
+							console.log('O arquivo não foi enviado');
+						});
+				}
+			}else{
+				alert('Nenhum arquivo foi selecionado!');
+			}
 		}
 
 		vm.baixarArquivo = function(idArquivo){
 			ArquivoService.download(idArquivo)
 				.then(function(success){
 					console.log('Arquivo baixado');
+					console.log(success.data);
 				})
 				.catch(function(error){
 					console.log('O arquivo não foi baixado');
-				})
-		}
-
-		vm.listarArquivos = function(){
-			ArquivoService.list()
-				.then(function(success){
-					console.log('Arquivos listados');
-				})
-				.catch(function(error){
-					console.log('Arquivos não foram listados');
 				})
 		}
 	}
