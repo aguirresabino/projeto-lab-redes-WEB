@@ -52,6 +52,18 @@
 
 			return $http(request);
 		}
+
+		this.delete = function(id){
+			const path = `arquivo/removerArquivo/${id}`;
+
+			var request = {
+				url: `${urlBase}/${path}`,
+				method: methods.DELETE,
+				headers: {'Authorization': 'Bearer '+ localStorage.token}
+			};
+
+			return $http(request);
+		}
 	}
 
 	ArquivoService.$inject = ['$http'];
