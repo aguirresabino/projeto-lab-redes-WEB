@@ -15,6 +15,10 @@
 					
 					var token = success.data.password;
 					localStorage.setItem('token', token);
+
+					var user = angular.toJson(success.data);
+					localStorage.setItem('user', user);
+
 					$location.path('meus-arquivos');
 				})
 				.catch(function(error){
