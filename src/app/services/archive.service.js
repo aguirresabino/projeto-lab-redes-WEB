@@ -16,10 +16,13 @@
 		this.upload = function(arquivo){
 			const path = 'arquivo/uploadArquivo';
 
+			var dado = angular.toJson(arquivo);
+			console.log(dado);
+
 			var request = {
 				url: `${urlBase}/${path}`,
 				method: methods.POST,
-				data: arquivo,
+				data: dado,
 				headers: {'Authorization': 'Bearer '+ localStorage.token}
 			};
 
@@ -31,7 +34,7 @@
 
 			var request = {
 				url: `${urlBase}/${path}`,
-				method: mehtods.GET,
+				method: methods.GET,
 				headers: {'Authorization': 'Bearer '+ localStorage.token}
 			};
 
@@ -43,7 +46,7 @@
 
 			var request = {
 				url: `${urlBase}/${path}`,
-				method: mehtods.GET,
+				method: methods.GET,
 				headers: {'Authorization': 'Bearer '+ localStorage.token}
 			};
 
