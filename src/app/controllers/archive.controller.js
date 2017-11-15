@@ -12,7 +12,6 @@
 				.then( function(success) {
 					var arq = success.data;
 					var indice = 0;
-					console.log(arq.length);
 
 					for(var i = 0; i < arq.length; i++){
 						if(arq[i].tamanho > 500000){
@@ -51,7 +50,6 @@
 
 					ArquivoService.upload(objArquivo)
 						.then(function(success) {
-							console.log('Arquivo enviado');
 							location.reload();
 						})
 						.catch( function(error) {

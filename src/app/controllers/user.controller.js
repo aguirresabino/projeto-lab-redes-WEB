@@ -8,7 +8,6 @@
 		var vm = this;
 
 		vm.perfil = angular.fromJson(localStorage.getItem('user'));
-		console.log(vm.perfil);
 
 		vm.cadastrar = function(user){
 			UserService.create(user)
