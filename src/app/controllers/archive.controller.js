@@ -11,7 +11,6 @@
 			ArquivoService.list()
 				.then( function(success) {
 					vm.arquivos = success.data;
-					console.log('Arquivos listados', vm.arquivos);
 				})
 				.catch( function(error) {
 					console.log('Arquivos não foram listados');
@@ -34,15 +33,14 @@
 					'tamanho': arquivo.size
 				};
 				readerArquivo.readAsDataURL(arquivo);
-				console.log('arquivo', objArquivo);
 
 				readerArquivo.onload = function() {
 					objArquivo.content = readerArquivo.result.split(';base64,')[1];
-					console.log(objArquivo.content);
 
 					ArquivoService.upload(objArquivo)
-						.then( function(success) {
+						.then(function(success) {
 							console.log('Arquivo enviado');
+							location.reload();
 						})
 						.catch( function(error) {
 							console.log('O arquivo não foi enviado');
@@ -57,10 +55,13 @@
 			ArquivoService.delete(idArquivo)
 				.then( function(success) {
 					alert('Arquivo excluído!');
+					vm.arquivos = vm.arquivos.filter(function(arquivo){
+						return arquivo.id !== idArquivo;
+					})
 				})
 				.catch( function(error) {
 					console.log('Erro ao deletar arquivo', error);
-				})
+				})			
 		}
 
 		vm.baixarArquivo = function(arquivo) {
