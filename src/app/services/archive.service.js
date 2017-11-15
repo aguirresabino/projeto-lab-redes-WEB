@@ -35,6 +35,7 @@
 			var request = {
 				url: `${urlBase}/${path}`,
 				method: methods.GET,
+				responseType: 'blob',
 				headers: {'Authorization': 'Bearer '+ localStorage.token}
 			};
 

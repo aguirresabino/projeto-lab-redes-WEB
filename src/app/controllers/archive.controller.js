@@ -1,24 +1,24 @@
-(function(){
+( function() {
 	'use strict';
 
-	angular.module('ArquivoController', ['ArquivoService'])
-		.controller('ArquivoController', ['ArquivoService', ArquivoController]);
+	angular.module('ArquivoController', ['ArquivoService', 'ngFileSaver'])
+		.controller('ArquivoController', ['ArquivoService', 'FileSaver', ArquivoController]);
 
-	function ArquivoController(ArquivoService){
+	function ArquivoController(ArquivoService, FileSaver) {
 		var vm = this;
 
-		vm.listarArquivos = function(){
+		vm.listarArquivos = function() {
 			ArquivoService.list()
-				.then(function(success){
+				.then( function(success) {
 					vm.arquivos = success.data;
 					console.log('Arquivos listados', vm.arquivos);
 				})
-				.catch(function(error){
+				.catch( function(error) {
 					console.log('Arquivos não foram listados');
 				})
 		}();
 
-		vm.enviarArquivo = function(arquivo){
+		vm.enviarArquivo = function(arquivo) {
 			var arquivo = document.querySelector('input[type=file]').files[0];
 			var user = angular.fromJson(localStorage.getItem('user'));
 			var readerArquivo = new FileReader();
@@ -26,7 +26,7 @@
 			var objArquivo = {};
 
 
-			if(arquivo) {
+			if (arquivo) {
 				objArquivo = {
 					'idUsuario': user.id,
 					'nome': arquivo.name,
@@ -41,66 +41,40 @@
 					console.log(objArquivo.content);
 
 					ArquivoService.upload(objArquivo)
-						.then(function(success){
+						.then( function(success) {
 							console.log('Arquivo enviado');
 						})
-						.catch(function(error){
+						.catch( function(error) {
 							console.log('O arquivo não foi enviado');
 						});
 				}
-			}else{
+			} else {
 				alert('Nenhum arquivo foi selecionado!');
 			}
 		}
 
-		vm.deletar = function(idArquivo){
+		vm.deletar = function(idArquivo) {
 			ArquivoService.delete(idArquivo)
-				.then(function(success){
+				.then( function(success) {
 					alert('Arquivo excluído!');
 				})
-				.catch(function(error){
+				.catch( function(error) {
 					console.log('Erro ao deletar arquivo', error);
 				})
 		}
 
-		vm.baixarArquivo = function(arquivo){
+		vm.baixarArquivo = function(arquivo) {
 			ArquivoService.download(arquivo.id)
-				.then(function(success){
-					console.log('Arquivo baixado');	
-					console.log(success.data);
+				.then( function(success) {
 
-					/*var tipo;
-  
-				  	var arquivo = {
-				    	nome: "arquivo.pdf"
-				  	};
-				  
-				  	switch (arquivo.nome.split(".")[1]) {
-				    	case "pdf":
-				      		tipo = "application/pdf";
-				      		break;
-				    	case "pnj":
-				      		tipo = "image/png";
-				      		break;
-				    	case "jpg":
-				      		tipo = "image/jpg";
-				      		break;
-				    	case "jpeg":
-				      		tipo = "image/jpg";
-				      		break;
-				  }
-
-				  console.log('AQUI');
-				  
-				  var blob = new Blob([], {type: tipo});
-				  FileSaver.saveAs(blob, arquivo.nome);*/
+				  FileSaver.saveAs(success.data, arquivo.nome);
 				})
-				.catch(function(error){
+				.catch( function(error) {
 					console.log('O arquivo não foi baixado');
 				})
 		}
 
-		vm.limparStorage = function(){
+		vm.limparStorage = function() {
 			localStorage.clear();
 		}
 	}
