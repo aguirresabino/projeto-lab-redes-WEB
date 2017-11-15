@@ -8,12 +8,13 @@
 		var vm = this;
 
 		vm.perfil = angular.fromJson(localStorage.getItem('user'));
-		console.log(vm.perfil);
 
 		vm.cadastrar = function(user){
 			UserService.create(user)
 				.then(function(success){
-					alert('Cadastro realizado!');
+					alert('Cadastro realizado! Acesse o sistema.');
+					$('#loginModal').modal('show');
+
 				})
 				.catch(function(error){
 					alert('Cadastro não realizado!');

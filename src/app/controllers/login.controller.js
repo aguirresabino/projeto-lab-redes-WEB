@@ -8,7 +8,6 @@
 		var vm = this;
 
 		vm.login = function(login){
-			console.log(login);
 			UserService.login(login)
 				.then(function(success){
 					$('.modal-backdrop').remove(); //Escondendo o modal onde eh feito o login.
