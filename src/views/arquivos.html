@@ -35,27 +35,29 @@
 		</div>
 		<div class="panel panel-default">
 			<div class="panel-heading">Meus arquivos</div>
-			<table class="table">
-			    <thead>
-			      	<tr>
-			      		<th>ID</th>
-			        	<th>Arquivo</th>
-			        	<th>Tamanho</th>
-			        	<th class="text-right">Ações</th>
-			      	</tr>
-			    </thead>
-			    <tbody>
-			      	<tr data-ng-repeat = "arquivo in Arquivo.arquivos | orderBy: 'arquivo.nome'">
-			      		<td>{{arquivo.id}}</td>
-			        	<td>{{arquivo.nome}}</td>
-			        	<td>{{arquivo.tamanho}}</td>
-			        	<td align="right">
-			        		<a href=""><span class="glyphicon glyphicon-trash" title="Excluir" data-ng-click="Arquivo.deletar(arquivo.id)"></span></a>
-			        		<a id="download" data-ng-href="{{Arquivo.arquivo}}" download data-ng-click = "Arquivo.baixarArquivo(arquivo)"><span class="glyphicon glyphicon-cloud-download" title="Download" data-ng-model= "Arquivo.download"></span></a>
-			        	</td>
-			      	</tr>
-			    </tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table">
+				    <thead>
+				      	<tr>
+				      		<th>ID</th>
+				        	<th>Arquivo</th>
+				        	<th>Tamanho</th>
+				        	<th class="text-right">Ações</th>
+				      	</tr>
+				    </thead>
+				    <tbody>
+				      	<tr data-ng-repeat = "arquivo in Arquivo.arquivos | orderBy: 'arquivo.nome'">
+				      		<td>{{arquivo.id}}</td>
+				        	<td>{{arquivo.nome}}</td>
+				        	<td>{{arquivo.tamanho}}</td>
+				        	<td align="right">
+				        		<a href=""><span class="glyphicon glyphicon-trash" title="Excluir" data-ng-click="Arquivo.deletar(arquivo.id)"></span></a>
+				        		<a id="download" data-ng-href="{{Arquivo.arquivo}}" download data-ng-click = "Arquivo.baixarArquivo(arquivo)"><span class="glyphicon glyphicon-cloud-download" title="Download" data-ng-model= "Arquivo.download"></span></a>
+				        	</td>
+				      	</tr>
+				    </tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

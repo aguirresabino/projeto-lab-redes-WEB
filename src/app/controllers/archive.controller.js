@@ -10,7 +10,19 @@
 		vm.listarArquivos = function() {
 			ArquivoService.list()
 				.then( function(success) {
-					vm.arquivos = success.data;
+					var arq = success.data;
+					var indice = 0;
+					console.log(arq.length);
+
+					for(var i = 0; i < arq.length; i++){
+						if(arq[i].tamanho > 500000){
+							arq[i].tamanho = (arq[i].tamanho / 1000000).toPrecision(2) + ' MB';
+						}else{
+							arq[i].tamanho = arq[i].tamanho + ' Bytes';
+						}
+					}
+
+					vm.arquivos = arq;
 				})
 				.catch( function(error) {
 					console.log('Arquivos não foram listados');
